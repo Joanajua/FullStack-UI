@@ -22,12 +22,11 @@ export class EmployeesService {
 
   getEmployee(id: string): Observable<Employee> {
     let response = this.http.get<Employee>(this.baseApiUrl + '/api/employees/' + id)
-    console.log(response)
 
     return response
   }
 
-  // editEmployee() {
-  //   this.http.put(this.baseApiUrl + '/api/employees', )
-  // }
+  updateEmployee(id: string, updateEmployeeRequest: Employee): Observable<Employee> {
+    return this.http.put<Employee>(this.baseApiUrl + '/api/employees/'  + id, updateEmployeeRequest)
+  }
 }
