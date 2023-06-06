@@ -44,4 +44,12 @@ export class EditEmployeeComponent implements OnInit{
       }
     })
   }
+
+  deleteEmployee(id: string){
+    this.employeeSevice.deleteEmployee(id).subscribe({
+      next: (response) => {
+        this.router.navigate(['employees'])
+      }
+    })
+  }
 }
